@@ -1,0 +1,103 @@
+# Formas de citar en Quarto
+
+La citación del tipo 1 es:
+
+Según @opesq la ........ tiene ..... para.... con.... es..... luego..... es.... haber.... finalmente....
+
+La citación del tipo 2 es: See for additional discussion of literate programming.[@opesq]
+
+**Código de r:** se puede ver un código r con su ejecución o salida que se va a presentar en este archivo, a continuación se muestra el resultado.
+
+```{r}
+1 + 1
+```
+
+**Código de r:** se puede solo la ejecución de un código ´r´ o solo su salida el cual que se va a presentar en este archivo
+
+```{r,echo=FALSE}
+1 + 1
+```
+
+**Código de r:** se puede solo el código código ´r´ pero no su ejecución o salida , como se muestra a continuación:
+
+```{r,eval=FALSE}
+1 + 1
+```
+
+## Referenciación de ecuaciones
+
+Para insertar una ecuación colocamos la ecuación en formato latex entre \$ para hacerlo en formato de linea, o entre \$$ para centrar la ecuación como se muestra a continuación
+
+En la siguiente ecuación \$1+1=2\$, se mostraría como: $1+1=2$, lo cual es bastante útil, en cambio si colocamos entre \$$ y al final \{\#eq-nombredelaecuación\} se enumerará automáticamente y se podra refereneciar usando \@eq-nombre, como ejemplo tenemos la primera ecuación del documento para referenciarla
+
+$$
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+$$ {#eq-nombre}
+
+El prefijo "eq-" es necesario para la referenciación de la ecuación
+
+Según la @eq-nombre se tiene que...
+
+También se puede editar el prefijo "ecuación" (predeterminado) por "fórmula", de la siguiente forma \[fórmula \@eq-nombre] lo cual nos resultará:
+
+Según la [fórmula @eq-nombre] se tiene que...
+
+
+
+## Referenciación de figuras
+
+Para referenciar figuras se coloca \#fig-nombredefigura en las caracteristicas de la figura y para citarlas simplemente colocamos \@fig-nombredelafigura.
+
+Ejemplo:
+
+Para insertar el logo de la unsaac colocamos \![Unsaac logo]\(imagen/unsaac.png\){width=20% #fig-unsaac .center}, "Unsaac logo" es el título de la figura y siempre esta entre corchetes, se pueden colocar ams caracteristicas en la parte que esta entre llaves, ahi mismo debe ir el nombre clave para referenciarlo, en este caso se ha colocado "\#fig-unsaac" como nombre para poder referenciarlo, el resultado del código es:
+
+![Unsaac logo](imagen/unsaac.png){width=20% #fig-unsaac .center}
+
+***Nota: **el prefijo "fig-" es necesario para la referenciación*
+
+Para referenciar la figura anterior, solo es necesario colocar \@fig-unsaac tal como colocamos en el nombre de referenciación. y se tendra:
+
+
+Ver @fig-unsaac para ...
+
+### Figura de Python
+
+Definimos el nombre de la figura en "label: fig-nombredefigura"
+
+```{python}
+#| fig-cap: "Polar axis plot"
+#| fig-alt: "A line plot on a polar axis"
+#| label: fig-chart
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+ver @fig-chart para ...(1)
+
+ver [Figura @fig-chart] ... (2)
+
+la nominación "figura x" es la que predeterminamos en el archivo YAML, si se quiere colocar en mayúscula el prefijo "Figura" como en (2), solo colocamos [Figura \@fig-nombredefigura] y se obtendrá en mayúscula, si se quiere hacer lo contrario puede editarlo en el archivo YAML.
+
+## Referenciación de tablas
+
+| Col1 | Col2 | Col3 |
+|------|------|------|
+| A    | B    | C    |
+| E    | F    | G    |
+| A    | G    | G    |
+
+: Tabla para ver {#tbl-letters}
+
+Vea @tbl-letters a hacer muchas cosas
+

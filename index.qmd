@@ -1,0 +1,10 @@
+<!-- Este archivo es para capitulo 1 -->
+\pagenumbering{arabic}
+# Planteamiento del problema
+
+## Situación problemática
+
+El sector .... del Perú representa .... después de la minería [@fao]. Dicho sector e..... ......... ........ .......... .................. ..... ...... .... ...en la anchoveta y en otros recursos como el jurel ... y caballa (*Scomber japonicus*).
+
+A principios .... la aprobación de un nuevo Reglamento de ... Pesquero [@opesq] con el propósito de ....
+
